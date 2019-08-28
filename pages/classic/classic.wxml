@@ -1,3 +1,4 @@
 <v-like 
-    count="{{9}}"
+    count="{{classic.fav_nums}}"
+    like="{{classic.like_status}}"
 />
