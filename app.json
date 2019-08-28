@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/classic/classic",
+    "pages/my/my",
+    "pages/book/book",
+    "pages/book-detail/book-detail",
+    "pages/about/about",
+    "pages/course/course",
+    "pages/classic-detail/classic-detail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "小程序",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "backgroundColor": "#ffffff",
+    "enablePullDownRefresh": false
+  },
+  "sitemapLocation": "sitemap.json"
+}
