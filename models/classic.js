@@ -14,9 +14,11 @@ class ClassicModel extends HTTP {
     })
   }
 
-  getPrevious(index,callback) {
+
+  // 将next  和 previous 合并成一个方法
+  getClassic(index, nextOrPrevious, callback) {
     this.request({
-      url: `classic/${index}/previous`,
+      url: `classic/${index}/${nextOrPrevious}`,
       success: (res) => {
         callback(res);
       }

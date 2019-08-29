@@ -38,18 +38,22 @@ Page({
   },
 
   onNext(event) {
-
-    
-
+    this._updateClassic('next');
   },
 
 
   onPrevious(event) {
-    // index 当前期刊号，就在classic 中可以获取
+    this._updateClassic('previous');
+  },
 
+  
+
+
+  // 私有函数一般放置在最下
+  _updateClassic(nextOrPrevious) {
     let index = this.data.classic.index;
 
-    classicModel.getPrevious( index, 
+    classicModel.getClassic(index, nextOrPrevious,
       (res) => {
         console.log(res);
         this.setData({
