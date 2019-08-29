@@ -39,6 +39,8 @@ Page({
 
   onNext(event) {
 
+    
+
   },
 
 
@@ -51,7 +53,9 @@ Page({
       (res) => {
         console.log(res);
         this.setData({
-          classic: res
+          classic: res,
+          latest: classicModel.isLatest(res.index),
+          first: classicModel.isFirst(res.index)
         })
       }
     )
