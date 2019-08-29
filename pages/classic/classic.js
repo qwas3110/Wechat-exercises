@@ -28,6 +28,10 @@ Page({
         })
       }
     )
-  }
+  },
+  
+  onLike(event) {
+    console.log(event);
+  },
  
 })

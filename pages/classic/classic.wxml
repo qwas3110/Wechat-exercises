@@ -2,6 +2,7 @@
   <v-like 
     count="{{classic.fav_nums}}"
     like="{{classic.like_status}}"
+    bind:like="onLike"
   />
   <v-movie
     img="{{classic.image}}"
