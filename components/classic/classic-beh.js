@@ -1,11 +1,18 @@
-let classicBeh = Behavior({
-  
+const classicBeh = Behavior({
   properties: {
-    src: String,
-    title: String
+    img: String,
+    content: String,
+    hidden: Boolean
   },
+  attached: function () {
 
-});
+  },
+  data: {
 
+  },
+  methods: {
 
-export {classicBeh};
+  }
+})
+
+export { classicBeh }

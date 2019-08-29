@@ -11,6 +11,15 @@ class ClassicModel extends HTTP {
 
     })
   }
+
+  getPrevious(index,callback) {
+    this.request({
+      url: `classic/${index}/previous`,
+      success: (res) => {
+        callback(res);
+      }
+    })
+  }
 }
 
 

@@ -7,13 +7,14 @@ Component({
 
 
 
-  behaviros: [classicBeh],
+  behaviors: [classicBeh],
   /**
    * 组件的属性列表
    */
   
   properties: {
-    
+    src: String,
+    title: String
   },
 
   /**

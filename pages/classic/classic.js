@@ -43,7 +43,15 @@ Page({
 
 
   onPrevious(event) {
+    // index 当前期刊号，就在classic 中可以获取
 
-  },
+    let index = this.data.classic.index;
+
+    classicModel.getPrevious( index, 
+      (res) => {
+        console.log(res);
+      }
+    )
+  }
  
 })

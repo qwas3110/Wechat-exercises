@@ -5,7 +5,7 @@ import { classicBeh } from '../classic-beh.js';
 
 Component({
 
-  behaviros: [classicBeh],
+  behaviors: [classicBeh],
   /**
    * 组件的属性列表
    */
