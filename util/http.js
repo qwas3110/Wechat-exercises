@@ -17,6 +17,8 @@ class HTTP {
     }
     wx.request({
       url: `${config.api_base_url}${params.url}`,
+      method: params.method,
+      data: params.data,
       header: {
         'content-type': 'application/json',
         appkey: `${config.appkey }`
