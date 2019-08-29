@@ -27,6 +27,8 @@
     title="{{classic.title}}"
     first="{{first}}"
     latest="{{latest}}"
+    bind:left="onNext"
+    bind:right="onPrevious"
   />
 
 </view>
