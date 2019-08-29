@@ -50,6 +50,9 @@ Page({
     classicModel.getPrevious( index, 
       (res) => {
         console.log(res);
+        this.setData({
+          classic: res
+        })
       }
     )
   }
