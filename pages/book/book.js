@@ -17,17 +17,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    books: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    bookModel.getHotList()
-    .then(res => {
-      console.log(res);
+  async onLoad(optins) {
+    const books = await bookModel.getHotList()
+    this.setData({
+      books
     })
+
+    console.log(this.data.books);
+    // .then(res => {
+    //   this.setData({
+    //     books:res
+    //   })
+    // })
+    // id
   },
 
   /**
