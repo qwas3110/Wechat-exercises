@@ -16,6 +16,13 @@ import {
     };
 
 
+    getMyBookCount() {
+      return this.request({
+        url: '/book/favor/count'
+      })
+    };
+
+
   }
 
 
