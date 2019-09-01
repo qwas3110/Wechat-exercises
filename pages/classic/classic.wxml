@@ -2,24 +2,39 @@
 
 
   <view class="header"> 
-  <v-episode
-    class="episode"
-    index="{{classic.index}}"
-  />
+    <v-episode
+      class="episode"
+      index="{{classic.index}}"
+    />
 
 
-  <v-like 
-    class="like"
-    count="{{ likeCount }}"
-    like="{{ likeStatus }}"
-    bind:like="onLike"
-  />
+    <v-like 
+      class="like"
+      count="{{ likeCount }}"
+      like="{{ likeStatus }}"
+      bind:like="onLike"
+    />
  
-</view>
+  </view>
 
- <v-movie
-    img="{{classic.image}}"
-    content="{{classic.content}}"
+  <v-movie 
+    hidden="{{classic.type!=100}}" 
+    img="{{classic.image}}" 
+    content="{{classic.content}}" 
+  />
+    
+  <v-music 
+    wx:if="{{classic.type==200}}" 
+    img="{{classic.image}}" 
+    content="{{classic.content}}" 
+    title="{{classic.title}}" 
+    src="{{classic.url}}" 
+  />
+   
+  <v-essay 
+    hidden="{{classic.type!=300}}" 
+    img="{{classic.image}}" 
+    content="{{classic.content}}" 
   />
 
   <v-navi
