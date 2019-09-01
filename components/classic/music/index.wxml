@@ -5,8 +5,9 @@
     />
 
     <image 
-      class="player-img" 
-      src="{{playSrc}}" 
+      class="player-img"
+      bind:tap="onPlay"  
+      src="{{!playing?playSrc:pauseSrc}}"
     />
 
     <image 
