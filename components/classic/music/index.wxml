@@ -1,6 +1,6 @@
 <view class="container" hidden="{{hidden}}" >
     <image 
-      class="classic-img" 
+      class="classic-img {{playing?'rotation':''}}" 
       src="{{img}}" 
     />
 
