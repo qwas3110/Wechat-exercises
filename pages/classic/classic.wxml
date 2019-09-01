@@ -10,8 +10,8 @@
 
   <v-like 
     class="like"
-    count="{{classic.fav_nums}}"
-    like="{{classic.like_status}}"
+    count="{{ likeCount }}"
+    like="{{ likeStatus }}"
     bind:like="onLike"
   />
  
