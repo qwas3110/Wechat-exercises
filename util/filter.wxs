@@ -1,7 +1,18 @@
 // 格式化详情书籍内容文本
+// wxs 类似与与es5  ， es6不要用
 
 var format = function(text) {
-  return '123';
+  // 严谨点做个判断，wxs 的报错做的不是很好
+  //数据在初始化的时候有2次，第一次是空的，第二次才会赋值，需要判断
+  if (!text) {
+    return
+  }
+  // 这里使用的 正则表达式需要参考小程序文档，和原生的正则有一定差别
+  // 如果要让wxml 解析 nbsp 这些转译的字符的话，需要在使用该文本你的元素上使用一个属性
+  // decode="{{true}}" 
+  var reg = getRegExp('\\\\n', 'g')
+  return text.replace(reg, '\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
+
 }
 
 
