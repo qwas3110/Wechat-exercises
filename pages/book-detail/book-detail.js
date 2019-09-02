@@ -78,5 +78,44 @@ Page({
   },
 
 
+  // 提交短评数据，
+  // 传入数据 1 用户自定义 2 用户点击已有短评标签
+  onPost(event) {
+    const comment = event.detail.text || event.detail.value
+
+    if (!comment) {
+      return
+    }
+
+    if (comment.length > 12) {
+      wx.showToast({
+        title: '短评最多12个字',
+        icon: 'none'
+      })
+      return
+    }
+
+    bookModel.postComment(this.data.book.id, comment)
+      .then(res => {
+        wx.showToast({
+          title: '+ 1',
+          icon: "none"
+        })
+
+        // 将新增加的短评 放置在前排
+        this.data.comments.unshift({
+          content: comment,
+          nums: 1
+        })
+
+        this.setData({
+          comments: this.data.comments,
+          posting: false
+        })
+      })
+  },
+
+
+
   
 })

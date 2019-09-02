@@ -64,6 +64,7 @@
       </view>
       <view class="comment-container">
           <block wx:for="{{util.limit(comments, 3)}}" wx:key="content">
+              <!-- 在这里监听自定义事件 -->
               <v-tag 
                 bind:tapping="onPost" 
                 tag-class="{{tool.highlight(index)}}" 

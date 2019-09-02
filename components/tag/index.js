@@ -26,6 +26,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    // 创建自定义事件
+    onTap(event) {
+      this.triggerEvent('tapping', {
+        text: this.properties.text
+      })
+    }
   }
 })
