@@ -49,7 +49,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -63,6 +63,13 @@
 					"name": "pages/book-detail/book-detail",
 					"pathName": "pages/book-detail/book-detail",
 					"query": "bid=1120",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/book-detail/book-detail",
+					"pathName": "pages/book-detail/book-detail",
+					"query": "bid=7",
 					"scene": null
 				}
 			]
