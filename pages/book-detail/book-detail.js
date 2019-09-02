@@ -1,4 +1,4 @@
-// pages/book-detail/book-detail.js
+ // pages/book-detail/book-detail.js
 Page({
 
   /**
@@ -12,7 +12,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const id = options.bid;
+    console.log(id);
   },
 
   /**
