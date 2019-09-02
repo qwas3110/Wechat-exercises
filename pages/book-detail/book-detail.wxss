@@ -73,10 +73,24 @@
 }
 
 
-.comment-container>v-tag:nth-child(1)>view {
+/* 对自定义组件使用样式 hack 方式 */
+
+/* > 子元素选择器, 喜欢这样的修改 */
+/* .comment-container>v-tag:nth-child(1)>view {
     background-color: #fffbdd;
 }
 
 .comment-container>v-tag:nth-child(2)>view {
     background-color: #eefbff;
+} */
+
+
+/* 外部样式 */
+
+.ex-tag1 {
+    background-color: #fffbdd !important;
+}
+
+.ex-tag2 {
+    background-color: #eefbff !important;
 }
