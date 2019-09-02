@@ -11,7 +11,7 @@
         <view class="comment-container">
             <block wx:for="{{comments}}" wx:key="content">
                 <v-tag  text="{{item.content}}">
-                    
+                    <text class="num" slot="after">{{'+'+item.nums}}</text>
                 </v-tag>
             </block>
         </view>
