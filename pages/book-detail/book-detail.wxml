@@ -74,6 +74,7 @@
               </v-tag>
           </block>
       </view>
+      <!-- bindconfirm input 上的事件 -->
       <input bindconfirm="onPost" class="post" placeholder='短评最多12个字'></input>
     </view>
 

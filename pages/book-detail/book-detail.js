@@ -81,8 +81,10 @@ Page({
   // 提交短评数据，
   // 传入数据 1 用户自定义 2 用户点击已有短评标签
   onPost(event) {
+     // innput属性输入值为 event.detail.value
+     // 点击标签的值得为 event.detail.text
     const comment = event.detail.text || event.detail.value
-
+    //防止用户输入空数据
     if (!comment) {
       return
     }
