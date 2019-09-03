@@ -26,7 +26,7 @@
 
    <!-- 历史搜索和热门搜索 -->
    
-   <view>
+   <view wx:if="{{!searching}}">
     <view class="history">
       <view class="title">
         <view class="chunk"></view>
@@ -56,5 +56,12 @@
     </view>
 
   </view>
+  <!-- 显示搜索结果 -->
+  <view wx:if="{{searching}}" class="books-container">
+    <block wx:for="{{dataArray}}" wx:key="{{item.id}}">
+      <v-book  book="{{item}}" class="book" />
+    </block>
+  </view>
+
 
 </view>

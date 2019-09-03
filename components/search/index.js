@@ -30,7 +30,8 @@ Component({
   data: {
     historyWords: [],
     hotWords: [],
-    dataArray: []
+    dataArray: [],
+    searching: false,
 
   },
 
@@ -57,9 +58,14 @@ Component({
     },
 
     onConfirm(event) {
-      // 获取用户搜索关键字
-      const word = event.detail.value;
 
+      // 改变搜索状态
+      this.setData({
+        searching: true
+      })
+
+
+      // 获取用户搜索关键字
       const q = event.detail.value;
       
       bookModel.search(0, q)
@@ -68,7 +74,7 @@ Component({
           dataArray: res.books
         })
 
-        keywordModel.addToHistory(word)
+        keywordModel.addToHistory(q)
 
       })
 
