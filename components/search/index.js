@@ -21,7 +21,15 @@ Component({
    * 组件的初始数据
    */
   data: {
+    historyWords: [],
 
+  },
+
+  //组件默认初始化时调用
+  attached() {
+    this.setData({
+      historyWords: keywordModel.getHistory()
+    })
   },
 
   /**
