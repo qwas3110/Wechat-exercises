@@ -27,35 +27,48 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const bid = options.bid;
 
+    wx.showLoading();
+
+    const bid = options.bid;
     // 获取详情数据3部分数据
     const detail = bookModel.getDetail(bid);
     const comments = bookModel.getComments(bid);
     const likeStatus = bookModel.getLikeStatus(bid);
 
-    detail.then(res => {
-      console.log(res)
-      this.setData({
-        book: res
+    Promise.all([detail, comments, likeStatus])
+      .then(res => {
+        this.setData({
+          book: res[0],
+          comments: res[1].comments,
+          likeStatus: res[2].like_status,
+          likeCount: res[2].fav_nums
+        })
+        wx.hideLoading()
       })
-      wx.hideLoading()
-    })
 
-    comments.then(res => {
-      console.log(res)
-      this.setData({
-        comments: res.comments
-      })
-    })
+    // detail.then(res => {
+    //   console.log(res)
+    //   this.setData({
+    //     book: res
+    //   })
+    //   wx.hideLoading()
+    // })
 
-    likeStatus.then(res => {
-      console.log(res)
-      this.setData({
-        likeStatus: res.like_status,
-        likeCount: res.fav_nums
-      })
-    })
+    // comments.then(res => {
+    //   console.log(res)
+    //   this.setData({
+    //     comments: res.comments
+    //   })
+    // })
+
+    // likeStatus.then(res => {
+    //   console.log(res)
+    //   this.setData({
+    //     likeStatus: res.like_status,
+    //     likeCount: res.fav_nums
+    //   })
+    // })
   },
 
   onLike(event) {
