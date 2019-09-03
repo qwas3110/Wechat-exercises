@@ -9,6 +9,7 @@
       <image class="icon" src="images/search.png" />
       <!-- auto-focus 自动聚焦 -->
       <input 
+        value="{{q}}"
         bind:confirm="onConfirm" 
         placeholder-class='in-bar' 
         placeholder='书籍名' 

@@ -32,6 +32,7 @@ Component({
     hotWords: [],
     dataArray: [],
     searching: false,
+    q: '',
 
   },
 
@@ -79,7 +80,8 @@ Component({
       bookModel.search(0, q)
       .then(res => {
         this.setData({
-          dataArray: res.books
+          dataArray: res.books,
+          q:q
         })
 
         keywordModel.addToHistory(q)
