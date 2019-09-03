@@ -56,7 +56,7 @@ Page({
   },
 
 
-  //用户触底的时候触发，该方法无法在自定义组件中使用
+  //onReachBottom用户触底的时候触发，该方法无法在自定义组件中使用
   //自定义data  传入自定义组件中可以让自定义组件使用
   onReachBottom() {
     this.setData({

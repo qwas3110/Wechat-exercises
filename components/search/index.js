@@ -39,6 +39,7 @@ Component({
     dataArray: [],
     searching: false,
     q: '',
+    loading: false,
 
   },
 
@@ -67,6 +68,30 @@ Component({
     // 定义 observer 函数
     loadMore() {
       console.log('123');
+
+      if(!this.data.q) {
+        return
+      }
+      
+      if(this.data.loading) {
+        return
+      }
+
+
+      // 一次只发送一个请求
+      const length = this.data.dataArray.length;
+      this.data.loading = true;
+      bookModel.search(length, this.data.q)
+      .then(
+        (res) => {
+          const tempArray = this.data.dataArray.concat(res.book)
+          this.setData({
+            dataArray: tempArray,
+            loading: false
+          })
+        }
+      )
+
     },
 
 
