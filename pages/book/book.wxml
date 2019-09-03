@@ -19,6 +19,7 @@
 
 
 <v-search 
+  more="{{more}}"
   wx:if="{{searching}}" 
   bind:cancel="onCancel"
 />

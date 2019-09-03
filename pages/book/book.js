@@ -3,7 +3,9 @@ import {
   BookModel
 } from '../../models/book.js'
 
-
+import {
+  random
+} from '../../util/common.js'
 
 
 const bookModel = new BookModel()
@@ -18,7 +20,8 @@ Page({
    */
   data: {
     books: [],
-    searching: false
+    searching: false,
+    more: '' 
   },
 
   /**
@@ -51,6 +54,16 @@ Page({
       searching: false
     })
   },
+
+
+  //用户触底的时候触发，该方法无法在自定义组件中使用
+  //自定义data  传入自定义组件中可以让自定义组件使用
+  onReachBottom() {
+    this.setData({
+      more: random(16)
+    })
+  }
+
 
 
   

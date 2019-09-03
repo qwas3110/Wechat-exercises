@@ -19,9 +19,15 @@ const bookModel = new BookModel()
 Component({
   /**
    * 组件的属性列表
+   * 
+   * observer 属性的值有改变的时候执行自定义函数
    */
   properties: {
-
+    more: {
+      type: String,
+      observer: 'loadMore'
+      // true, true, true,
+    }
   },
 
   /**
@@ -57,6 +63,12 @@ Component({
     onCancel(event) {
       this.triggerEvent('cancel', {}, {})
     },
+
+    // 定义 observer 函数
+    loadMore() {
+      console.log('123');
+    },
+
 
     // 搜索 x 图标删除当前文本
     onDelete(event) {
