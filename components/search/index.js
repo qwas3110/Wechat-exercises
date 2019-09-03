@@ -44,7 +44,7 @@ Component({
     searching: false,
     q: '',
     loading: false,
-
+    loadingCenter: false
   },
 
   //组件默认初始化时调用
@@ -66,6 +66,7 @@ Component({
    */
   methods: {
     onCancel(event) {
+      this.initialize()
       this.triggerEvent('cancel', {}, {})
     },
 
@@ -93,9 +94,8 @@ Component({
 
     // 搜索 x 图标删除当前文本
     onDelete(event) {
-      this.setData({
-        searching: false
-      })
+      this.initialize()
+      this._closeResult()
     },
 
 
