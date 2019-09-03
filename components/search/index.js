@@ -2,7 +2,14 @@
 import {
   KeywordModel
 } from '../../models/keyword.js'
+
+import {
+  BookModel
+} from '../../models/book.js'
+
+
 const keywordModel = new KeywordModel()
+const bookModel = new BookModel()
 
 
 
@@ -23,6 +30,7 @@ Component({
   data: {
     historyWords: [],
     hotWords: [],
+    dataArray: []
 
   },
 
@@ -51,7 +59,19 @@ Component({
     onConfirm(event) {
       // 获取用户搜索关键字
       const word = event.detail.value;
-      keywordModel.addToHistory(word)
+
+      const q = event.detail.value;
+      
+      bookModel.search(0, q)
+      .then(res => {
+        this.setData({
+          dataArray: res.books
+        })
+
+        keywordModel.addToHistory(word)
+
+      })
+
     }
 
   }

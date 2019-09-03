@@ -22,6 +22,17 @@ import {
       })
     };
 
+    //获取搜索结果
+    search(start, q) {
+      return this.request({
+        url: 'book/search?summary=1',
+        data: {
+          q: q,
+          start: start
+        }
+      })
+    }
+
 
     //获取数据详情信息
     getDetail(bid) {
