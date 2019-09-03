@@ -16,7 +16,7 @@ class KeywordModel extends HTTP {
     }
     return words
   }
-
+  // 获取热门搜索关键词
   getHot() {
     return this.request({
       url: '/book/hot_keyword'

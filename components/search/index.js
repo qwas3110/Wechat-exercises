@@ -22,6 +22,7 @@ Component({
    */
   data: {
     historyWords: [],
+    hotWords: [],
 
   },
 
@@ -29,6 +30,13 @@ Component({
   attached() {
     this.setData({
       historyWords: keywordModel.getHistory()
+    })
+
+    //该方法是一个promise 需要then获取
+    keywordModel.getHot().then(res => {
+      this.setData({
+        hotWords: res.hot
+      })
     })
   },
 
