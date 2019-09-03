@@ -7,6 +7,10 @@ import {
   BookModel
 } from '../../models/book.js'
 
+import {
+  paginationBev
+} from '../behaviors/pagination.js'
+
 
 const keywordModel = new KeywordModel()
 const bookModel = new BookModel()
@@ -22,6 +26,7 @@ Component({
    * 
    * observer 属性的值有改变的时候执行自定义函数
    */
+  behaviors: [paginationBev],
   properties: {
     more: {
       type: String,
@@ -36,7 +41,6 @@ Component({
   data: {
     historyWords: [],
     hotWords: [],
-    dataArray: [],
     searching: false,
     q: '',
     loading: false,
@@ -67,31 +71,23 @@ Component({
 
     // 定义 observer 函数
     loadMore() {
-      console.log('123');
-
-      if(!this.data.q) {
+      if (!this.data.q) {
         return
       }
-      
-      if(this.data.loading) {
+      if (this.isLocked()) {
         return
       }
-
-
-      // 一次只发送一个请求
-      const length = this.data.dataArray.length;
-      this.data.loading = true;
-      bookModel.search(length, this.data.q)
-      .then(
-        (res) => {
-          const tempArray = this.data.dataArray.concat(res.book)
-          this.setData({
-            dataArray: tempArray,
-            loading: false
+      if (this.hasMore()) {
+        this.locked()
+        bookModel.search(this.getCurrentStart(), this.data.q)
+          .then(res => {
+            this.setMoreData(res.books)
+            this.unLocked()
+          }, () => {
+            this.unLocked()
           })
-        }
-      )
-
+        // 死锁
+      }
     },
 
 
@@ -104,28 +100,49 @@ Component({
 
 
     onConfirm(event) {
+      this._showResult()
+      this._showLoadingCenter()
+      // this.initialize() 
+      const q = event.detail.value || event.detail.text
+      this.setData({
+        q
+      })
+      bookModel.search(0, q)
+        .then(res => {
+          this.setMoreData(res.books)
+          this.setTotal(res.total)
+          keywordModel.addToHistory(q)
+          this._hideLoadingCenter()
+        })
+    },
 
-      // 改变搜索状态
+
+
+    _showResult() {
       this.setData({
         searching: true
       })
+    },
 
-
-      // 获取用户搜索关键字 做个判断 是点击关键字或者自己输入
-      const q = event.detail.value || event.detail.text
-      
-      bookModel.search(0, q)
-      .then(res => {
-        this.setData({
-          dataArray: res.books,
-          q:q
-        })
-
-        keywordModel.addToHistory(q)
-
+    _closeResult() {
+      this.setData({
+        searching: false,
+        q: ''
       })
+    },
 
-    }
+
+    _showLoadingCenter() {
+      this.setData({
+        loadingCenter: true
+      })
+    },
+
+    _hideLoadingCenter() {
+      this.setData({
+        loadingCenter: false
+      })
+    },
 
   }
 })
