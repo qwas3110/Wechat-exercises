@@ -1,10 +1,20 @@
 // components/search/index.js
+import {
+  KeywordModel
+} from '../../models/keyword.js'
+const keywordModel = new KeywordModel()
+
+
+
+
+
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    
+
   },
 
   /**
@@ -21,5 +31,12 @@ Component({
     onCancel(event) {
       this.triggerEvent('cancel', {}, {})
     },
+
+    onConfirm(event) {
+      // 获取用户搜索关键字
+      const word = event.detail.value;
+      keywordModel.addToHistory(word)
+    }
+
   }
 })

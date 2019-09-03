@@ -9,6 +9,7 @@
       <image class="icon" src="images/search.png" />
       <!-- auto-focus 自动聚焦 -->
       <input 
+        bind:confirm="onConfirm" 
         placeholder-class='in-bar' 
         placeholder='书籍名' 
         class='bar' 
@@ -34,7 +35,7 @@
       
 
     </view>
-    
+
     <view class="history hot-search">
       <view class="title">
         <view class="chunk"></view>
