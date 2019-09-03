@@ -16,7 +16,7 @@
         auto-focus="true"
       />
 
-      <image class="cancel-img" src="images/cancel.png" />
+      <image bind:tap="onDelete" class="cancel-img" src="images/cancel.png" />
 
     </view>
 
@@ -35,7 +35,7 @@
       <!-- 遍历历史搜索 -->
       <view class="tags">
         <block wx:key="" wx:for="{{historyWords}}">
-          <v-tag  text="{{item}}" />
+          <v-tag  bind:tapping="onConfirm" text="{{item}}" />
         </block>
       </view>
 
@@ -49,7 +49,7 @@
        <!-- 遍历热门搜索 -->
        <view class="tags">
         <block wx:key="" wx:for="{{hotWords}}">
-          <v-tag text="{{item}}" />
+          <v-tag bind:tapping="onConfirm" text="{{item}}" />
         </block>
       </view>
       

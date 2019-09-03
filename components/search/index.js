@@ -57,6 +57,14 @@ Component({
       this.triggerEvent('cancel', {}, {})
     },
 
+    // 搜索 x 图标删除当前文本
+    onDelete(event) {
+      this.setData({
+        searching: false
+      })
+    },
+
+
     onConfirm(event) {
 
       // 改变搜索状态
@@ -65,8 +73,8 @@ Component({
       })
 
 
-      // 获取用户搜索关键字
-      const q = event.detail.value;
+      // 获取用户搜索关键字 做个判断 是点击关键字或者自己输入
+      const q = event.detail.value || event.detail.text
       
       bookModel.search(0, q)
       .then(res => {
