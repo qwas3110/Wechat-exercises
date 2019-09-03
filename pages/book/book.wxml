@@ -1,6 +1,7 @@
 <!-- for 循环 wx:for -->
-<view  class="container">
+<view wx:if="{{!searching}}"  class="container">
     <view class="header">
+        <!-- 添加搜索自定义事件 onSearching -->
         <view class='box' bind:tap="onSearching">
             <image src="/images/icon/search.png" />
             <text>搜索书籍</text>
@@ -15,6 +16,12 @@
         </view>
     </view>
 </view>
+
+
+<v-search 
+  wx:if="{{searching}}" 
+  bind:cancel="onCancel"
+/>
 
 
 <!-- <view wx:if="{{!searching}}" class="container"> -->

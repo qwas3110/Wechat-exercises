@@ -18,6 +18,7 @@ Page({
    */
   data: {
     books: [],
+    searching: false
   },
 
   /**
@@ -37,6 +38,20 @@ Page({
     // })
     // id
   },
+
+  
+  onSearching(event) {
+    this.setData({
+      searching: true
+    })
+  },
+
+  onCancel(event) {
+    this.setData({
+      searching: false
+    })
+  },
+
 
   
 
