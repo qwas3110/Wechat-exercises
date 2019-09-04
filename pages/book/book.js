@@ -26,6 +26,7 @@ Page({
 
   /**
    * 生命周期函数--监听页面加载
+   * 修改成async await
    */
   async onLoad(optins) {
     const books = await bookModel.getHotList()

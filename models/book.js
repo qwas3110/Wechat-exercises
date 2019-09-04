@@ -8,9 +8,10 @@ import {
 
     data = null;
 
-
-    getHotList() {
-      return this.request({
+    //返回当前热门书籍列表
+    // 改用 saync await,意义不大
+    async getHotList() {
+      return await this.request({
         url: 'book/hot_list'
       })
     };
