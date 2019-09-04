@@ -21,6 +21,7 @@ Page({
     authorized: false,
     userInfo: null,
     bookCount: 0,
+    classics: null
  
   },
 
@@ -29,8 +30,18 @@ Page({
    */
   onLoad: function (options) {
     this.userAuthorized();
-    this.getMyBookCount()
+    this.getMyBookCount();
+    this.getMyFavor()
 
+  },
+
+
+  getMyFavor() {
+    classicModel.getMyFavor(res => {
+      this.setData({
+        classics: res
+      })
+    })
   },
 
   // 获取我喜欢的书

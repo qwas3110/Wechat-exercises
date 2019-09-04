@@ -40,6 +40,15 @@ class ClassicModel extends HTTP {
 
   }
 
+  // 获取我喜欢的期刊信息 
+  getMyFavor(success) {
+    const params = {
+      url: 'classic/favor',
+      success: success
+    }
+    this.request(params)
+  }
+
   
 
 

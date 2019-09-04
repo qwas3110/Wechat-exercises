@@ -34,5 +34,19 @@
     </view>
   </view>
 
+
+   <view class="like-container">
+        <image class="headline" src="/images/my/like.png" />
+        <view class="preview-container">
+            <block wx:for="{{classics}}" wx:key="">
+                <v-preview 
+                  bind:tapping="onJumpToDetail" 
+                  class="preview" 
+                  classic="{{item}}" 
+                />
+            </block>
+        </view>
+    </view>
+
    
 </view>
