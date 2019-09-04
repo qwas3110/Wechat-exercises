@@ -15,7 +15,7 @@ import {
       })
     };
 
-
+    // 获取我喜欢的书籍
     getMyBookCount() {
       return this.request({
         url: '/book/favor/count'

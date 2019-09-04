@@ -1,4 +1,17 @@
 // pages/my/my.js
+import {
+  ClassicModel
+} from '../../models/classic.js'
+import {
+  BookModel
+} from '../../models/book.js'
+
+
+const classicModel = new ClassicModel()
+const bookModel = new BookModel()
+
+
+
 Page({
 
   /**
@@ -7,6 +20,7 @@ Page({
   data: {
     authorized: false,
     userInfo: null,
+    bookCount: 0,
  
   },
 
@@ -15,7 +29,21 @@ Page({
    */
   onLoad: function (options) {
     this.userAuthorized();
+    this.getMyBookCount()
+
   },
+
+  // 获取我喜欢的书
+  getMyBookCount() {
+    bookModel.getMyBookCount()
+      .then(res => {
+        this.setData({
+          bookCount: res.count
+        })
+      })
+  },
+
+  
 
 
   // 判断用户是否授权
@@ -48,6 +76,14 @@ Page({
         authorized: true
       })
     }
+  },
+
+
+  //跳转页面
+  onJumpToAbout(event) {
+    wx.navigateTo({
+      url: '/pages/about/about',
+    })
   },
 
  
