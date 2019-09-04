@@ -65,11 +65,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    onCancel(event) {
-      this.initialize()
-      this.triggerEvent('cancel', {}, {})
-    },
-
+ 
     // 定义 observer 函数
     loadMore() {
       if (!this.data.q) {
@@ -92,13 +88,6 @@ Component({
     },
 
 
-    // 搜索 x 图标删除当前文本
-    onDelete(event) {
-      this.initialize()
-      this._closeResult()
-    },
-
-
     onConfirm(event) {
       this._showResult()
       this._showLoadingCenter()
@@ -117,6 +106,17 @@ Component({
     },
 
 
+    onCancel(event) {
+      this.initialize()
+      this.triggerEvent('cancel', {}, {})
+    },
+
+
+    // 搜索 x 图标删除当前文本
+    onDelete(event) {
+      this.initialize()
+      this._closeResult()
+    },
 
     _showResult() {
       this.setData({

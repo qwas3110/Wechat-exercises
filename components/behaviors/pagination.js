@@ -15,6 +15,7 @@ const paginationBev = Behavior({
       })
     },
 
+    // 返回起始数
     getCurrentStart() {
       return this.data.dataArray.length
     },
@@ -28,6 +29,7 @@ const paginationBev = Behavior({
       }
     },
 
+    // 是否需要加载更多数据
     hasMore() {
       if (this.data.dataArray.length >= this.data.total) {
         return false
