@@ -15,11 +15,12 @@
     </view>
   </view>
 
-   <button 
-      open-type="getUserInfo" 
-      bind:getuserinfo="onGetUserInfo"
-      class="avatar-position" 
-      >
-      授权用户信息
-   </button> 
+    <!--将button封装在自定义组件中  -->
+   <v-button  
+    open-type="getUserInfo" 
+    class="avatar-position" 
+    bind:getuserinfo="onGetUserInfo"
+    >
+    <image slot="img" class="avatar" src="/images/my/my.png" />
+  </v-button>
 </view>

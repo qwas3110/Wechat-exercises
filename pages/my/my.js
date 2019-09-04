@@ -15,10 +15,6 @@ Page({
     this.userAuthorized();
   },
 
-  //用户授权事件
-  onGetUserInfo(event) {
-    // console.log(event)
-  },
 
   // 判断用户是否授权
   userAuthorized() {
@@ -37,7 +33,12 @@ Page({
         }
       }
     })
-  }
+  },
+
+  onGetUserInfo(event) {
+    const userInfo = event.detail.userInfo
+    console.log(userInfo);
+  },
 
  
 })
