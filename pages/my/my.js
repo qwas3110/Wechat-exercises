@@ -57,7 +57,29 @@ Page({
   
 
 
+  
+
+  onGetUserInfo(event) {
+    const userInfo = event.detail.userInfo
+    if (userInfo) {
+      this.setData({
+        userInfo,
+        authorized: true
+      })
+    }
+  },
+
+
+  //跳转页面
+  onJumpToAbout(event) {
+    wx.navigateTo({
+      url: '/pages/about/about',
+    })
+  },
+
+
   // 判断用户是否授权
+  // 回调方式实现
   userAuthorized() {
     wx.getSetting({
       success: data => {
@@ -79,22 +101,37 @@ Page({
     })
   },
 
-  onGetUserInfo(event) {
-    const userInfo = event.detail.userInfo
-    if (userInfo) {
-      this.setData({
-        userInfo,
-        authorized: true
+
+
+  // promisic 方法实现
+  userAuthorized1() {
+    promisic(wx.getSetting)()
+      .then(data => {
+        if (data.authSetting['scope.userInfo']) {
+          return promisic(wx.getUserInfo)()
+        }
+        return false
       })
-    }
+      .then(data => {
+        if (!data) return
+        this.setData({
+          authorized: true,
+          userInfo: data.userInfo
+        })
+      })
   },
 
-
-  //跳转页面
-  onJumpToAbout(event) {
-    wx.navigateTo({
-      url: '/pages/about/about',
-    })
+  // async await 方法实现
+  async userAuthorized2() {
+    const data = await promisic(wx.getSetting)()
+    if (data.authSetting['scope.userInfo']) {
+      const res = await promisic(wx.getUserInfo)()
+      const userInfo = res.userInfo
+      this.setData({
+        authorized: true,
+        userInfo
+      })
+    }
   },
 
  
