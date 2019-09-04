@@ -7,13 +7,23 @@
       index="{{classic.index}}"
     />
 
+    <view class="like-container">
+      <v-like 
+        class="like"
+        count="{{ likeCount }}"
+        like="{{ likeStatus }}"
+        bind:like="onLike"
+      />
 
-    <v-like 
-      class="like"
-      count="{{ likeCount }}"
-      like="{{ likeStatus }}"
-      bind:like="onLike"
-    />
+      <!-- 自定义button组件传入的值 为 share -->
+      <v-button 
+        class="share-btn" 
+        open-type="share">
+        <image class="share" slot="img" src="/images/icon/share.png" />
+      </v-button>
+    </view>
+
+    
  
   </view>
 
