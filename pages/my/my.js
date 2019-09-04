@@ -13,9 +13,16 @@ Page({
    */
   onLoad: function (options) {
     wx.getUserInfo({
-      
+      success: (res) => {
+        console.log(res)
+      }
     })
   },
+
+  //用户授权事件
+  onGetUserInfo(event) {
+    // console.log(event)
+  }
 
  
 })

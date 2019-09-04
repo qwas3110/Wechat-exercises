@@ -1,7 +1,7 @@
 <view class="container">
   <image src="/images/my/my@bg.png" class="bg"/>
   <!-- open-data 显示用户头像或昵称等 -->
-  <open-data type="userAvatarUrl" class="avatar avatar-position"/>
+  <!-- <open-data type="userAvatarUrl" class="avatar avatar-position"/> -->
   
   <view class="about-container">
     <view class="about-us">
@@ -15,5 +15,11 @@
     </view>
   </view>
 
-
+   <button 
+      open-type="getUserInfo" 
+      bind:getuserinfo="onGetUserInfo"
+      class="avatar-position" 
+      >
+      授权用户信息
+   </button> 
 </view>
