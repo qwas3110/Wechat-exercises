@@ -16,11 +16,19 @@
       />
 
       <!-- 自定义button组件传入的值 为 share -->
-      <v-button 
+      <!-- <v-button 
         class="share-btn" 
         open-type="share">
         <image class="share" slot="img" src="/images/icon/share.png" />
-      </v-button>
+      </v-button> -->
+
+      <!-- 使用ui组件 -->
+       <l-button 
+        open-type="share"
+        special="{{true}}"
+        >
+        <image class="share" src="/images/icon/share.png" />
+      </l-button>
     </view>
 
     
